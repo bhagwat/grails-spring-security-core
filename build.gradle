@@ -16,7 +16,7 @@ plugins {
     id "com.jfrog.bintray" version "1.1"
 }
 
-version "0.1-SNAPSHOT"
+version "3.0-SNAPSHOT"
 group "org.grails.plugins"
 
 apply plugin: 'maven-publish'
@@ -26,6 +26,10 @@ apply plugin: "spring-boot"
 apply plugin: "org.grails.grails-plugin"
 apply plugin: "org.grails.grails-gsp"
 
+// Used for publishing to central repository, remove if not needed
+apply from: 'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/grailsCentralPublishing.gradle'
+apply from: 'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/bintrayPublishing.gradle'
+
 sourceSets.main.java.srcDirs = []
 sourceSets.main.groovy.srcDirs += ["src/main/java"]
 
@@ -33,9 +37,6 @@ ext {
     grailsVersion = project.grailsVersion
     gradleWrapperVersion = project.gradleWrapperVersion
 }
-
-//sourceCompatibility = 1.7
-//targetCompatibility = 1.7
 
 repositories {
     mavenLocal()
@@ -54,7 +55,6 @@ dependencies {
     provided 'org.springframework.boot:spring-boot-starter-logging'
     provided "org.springframework.boot:spring-boot-starter-actuator"
     provided "org.springframework.boot:spring-boot-autoconfigure"
-    compile "org.springframework.boot:spring-boot-starter-security"
     provided "org.springframework.boot:spring-boot-starter-tomcat"
 
     provided "org.grails:grails-web-boot"
@@ -62,7 +62,9 @@ dependencies {
     provided 'javax.servlet:javax.servlet-api:3.1.0'
 
     testCompile "org.grails:grails-plugin-testing"
+
     compile 'net.sf.ehcache:ehcache:2.9.0'
+    compile "org.springframework.boot:spring-boot-starter-security"
 }
 
 task wrapper(type: Wrapper) {
