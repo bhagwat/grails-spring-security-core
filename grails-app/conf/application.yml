@@ -1,10 +1,4 @@
 grails:
-    doc:
-        authors: Burt Beckwith, Beverley Talbott
-        license: Apache License 2.0
-        title: Spring Security Core Plugin
----
-grails:
     profile: web-plugin
     codegen:
         defaultPackage: grails.plugin.springsecurity
@@ -17,6 +11,12 @@ spring:
     groovy:
         template:
             check-template-location: false
+---
+grails:
+    doc:
+        authors: Burt Beckwith, Beverley Talbott
+        license: Apache License 2.0
+        title: Spring Security Core Plugin
 ---
 grails:
     mime:
