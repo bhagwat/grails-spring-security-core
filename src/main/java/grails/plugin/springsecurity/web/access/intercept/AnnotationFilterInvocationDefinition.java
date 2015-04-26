@@ -192,7 +192,7 @@ public class AnnotationFilterInvocationDefinition extends AbstractFilterInvocati
     }
 
     /**
-     * Called by the plugin to set controller role info.<br/>
+     * Called by the plugin to set controller role info.<br>
      * <p>
      * Reinitialize by calling <code>ctx.objectDefinitionSource.initialize(
      * ctx.authenticateService.securityConfig.security.annotationStaticRules,

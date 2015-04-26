@@ -59,6 +59,7 @@ public abstract class AbstractFilterInvocationDefinition implements FilterInvoca
      * Allows subclasses to be externally reset.
      *
      * @throws Exception
+     * description
      */
     public void reset() throws Exception {
         // override if necessary
